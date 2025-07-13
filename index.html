@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Carta con Sobre 3D</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #121212;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .envelope {
+      width: 300px;
+      height: 200px;
+      background: #f5deb3;
+      position: relative;
+      transform-style: preserve-3d;
+      transform: perspective(800px);
+      cursor: pointer;
+    }
+
+    .envelope::before,
+    .envelope::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+
+    .envelope::before {
+      border-width: 0 150px 100px 150px;
+      border-color: transparent transparent #f5deb3 transparent;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      transition: transform 2s ease;
+      transform-origin: top center;
+    }
+
+    .card {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: white;
+      color: black;
+      padding: 20px;
+      box-sizing: border-box;
+      font-size: 16px;
+      transform: translateY(0);
+      transition: transform 2s ease;
+      border-radius: 10px;
+    }
+
+    .opened::before {
+      transform: rotateX(-120deg);
+    }
+
+    .opened .card {
+      transform: translateY(-260px);
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #1db954;
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="envelope" id="envelope">
+      <div class="card" id="carta">
+Holaaa bebeee hermoshaaaaa
+
+Se que tenemos 14 días desde que hablamos, pero en estas 2 semanas:
+14 días
+336 horas
+20,160 minutos
+1,209,600 segundos
+
+Me has demostrado lo tanto que vales, amor mío.
+Y por eso, desde nuestro primer cruce de palabras, yo ya sabía lo que quería junto a ti,
+lo que quiero vivir y todo lo que quiero en esta vida está en ti.
+
+Por eso no tengo más palabras para decirte, bebé.
+Sos preciosa.
+Sos el amor de mi vida.
+Y quiero vivir contigo toda mi vida, hermosura mía.
+
+De verdad, te amo muchísimo.
+Sos una chica increíble en cada aspecto y sentido,
+y no pienso dejar que nadie te haga sentir lo contrario, mi amor.
+
+Te merecés todo lo que está bien en este mundito, bb.
+Me esforzaré en darte todo lo posible, mi bebé, y en hacerte feliz.
+
+De verdad que Dios...
+Mujer, me encantás una locura.
+Sos perfecta ante mis ojos, amor mío.
+
+Y hoy es un día especial, bebé, porque ya es tu cumpleaños.
+Sé que quizás es poquito, bebé, pero lo escribo siendo sincero y de verdad:
+Te amo a montones, hermosura mía.
+
+Y shhh... que esa Cris se busque otra,
+tú eres sólo mía, bebé ❤️🤭
+
+Te amo muchísimo y que pases un hermosísimo día, amor de mi vida.
+Feliz cumpleaños, bebé 🥹❤️
+
+Att: el rompe bolas jaja
+      </div>
+    </div>
+    <button onclick="abrir()">Abrir Carta</button>
+  </div>
+
+  <script>
+    function abrir() {
+      document.getElementById("envelope").classList.add("opened");
+    }
+  </script>
+</body>
+</html>
